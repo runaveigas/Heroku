@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Blood Pressure Prediction ML API</title>
+     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style9.css') }}">
+</head>
+
+<body>                                                                                                          
+ <div class="w3-container w3-light-grey">
+	<h1 class="w3-center",style="padding:128px 16px">PREDICT YOUR BLOOD PRESSURE</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<p><input class="w3-input w3-border" type="text" name="age" placeholder="Age(years)" required="required" /></p>
+        <p><input class="w3-input w3-border" type="text" name="weight" placeholder="Weight(kg)" required="required" /></p>
+		<p><input class="w3-input w3-border" type="text" name="bsa" placeholder="Body Surface Area(sq m)" required="required" /></p>
+		<p><input class="w3-input w3-border" type="text" name="hypertension" placeholder="Duration of Hypertension(years)" required="required" /></p>
+		<p><input class="w3-input w3-border" type="text" name="pulse" placeholder="Basal Pulse(beats per minute)" required="required" /></p>
+		<p><input class="w3-input w3-border" type="text" name="stress" placeholder="Stress Index" required="required" /></p>
+
+        <p>
+        <div class = "center">
+            <button type="submit" class="w3-button w3-black" type = "submit">
+            <i class="fa fa-heart"></i> 
+            Predict Blood Pressure
+            </button>
+        </div>
+        
+        </p>
+    
+
+    </form>
+ </div>
+   <br>
+   <br>
+   {{ prediction_text }}
+   
+ </div>
